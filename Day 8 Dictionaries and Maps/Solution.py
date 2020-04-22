@@ -1,24 +1,24 @@
 #Question Link: https://www.hackerrank.com/challenges/30-dictionaries-and-maps/problem
-n = int(input())
 dicti = dict()
 
-for x in range(n):
-    name, number = input().split(" ")
-    dicti[name] = number
-
+for _ in range(int(input())):
+        name, number = input().split(" ")
+        dicti[str(name)] = int(number)
+      
 condition = True
-names = []
-while condition:
-    name = input()
-    names.append(name)
-    if name == "":
-        condition = False
-        names.pop()
+store = []
 
-for x in names:
-    if x in list(dicti.keys()):
-        print(x + "=" + dicti[x])
-    else:
-        print("Not found")
+for _ in range(len(dicti)):
+        name = input()
+        if name in list(map(str, dicti.keys())):
+                store.append(name)
+        if name not in list(map(str, dicti.keys())):
+                store.append("Not found")
+        
+for x in store:
+        if x == "Not found":
+                print(x)
+        else:
+                print(x + "=" + str(dicti[x]))
 
 
